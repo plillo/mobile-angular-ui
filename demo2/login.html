@@ -1,0 +1,105 @@
+<div ui-content-for="title">
+	<span ng-if="!haLoggedUser"><i class="fa fa-lock fa-navbar"></i> Sign in</span>
+	<span ng-if="haLoggedUser"><i class="fa fa-unlock fa-navbar"></i> Profile</span>
+</div>
+
+<div login-component class="scrollable" >
+	<div class="scrollable-content section">
+		<div>
+			<button class="btn btn-warning btn-block" ng-click="debug=!debug">Debug</button>
+			<div class="ha-debug-view" ng-show="debug==true">
+				<div><strong>Logged user</strong>: {{haLoggedUser}}</div>
+				<div ng-if="haLoggedUser"><strong>UID</strong>: {{haUser.uid}}</div>
+				<div ng-if="haLoggedUser"><strong>User</strong>: {{haUser.email}}</div>
+				<div><strong>Mode</strong>: {{loginForm.loginIdentificator.mode}}</div>
+				<div><strong>Id type</strong>: {{loginForm.loginIdentificator.identificatorType}}</div>
+				<div><strong>Response</strong>:<br /> {{response}}</div>
+				<div><strong>Login form</strong>:<br /> {{ loginForm | json }}</div>
+			</div>
+		</div>
+
+		<form name="loginForm" id="login-form">
+			<fieldset>
+				<legend>
+					<span ng-class="{'ha-active': loginForm.loginIdentificator.mode=='login'}">Sign in</span>
+					&nbsp;/&nbsp;
+					<span ng-class="{'ha-active': loginForm.loginIdentificator.mode=='create'}">Create an account</span>
+				</legend>
+				<div class="form-group has-success has-feedback">
+					<label>
+						<span ng-class="{'ha-active': loginForm.loginIdentificator.identificatorType=='username'}">Username</span>
+						&nbsp;/&nbsp;
+						<span ng-class="{'ha-active': loginForm.loginIdentificator.identificatorType=='email'}">Email</span>
+						&nbsp;/&nbsp;
+						<span ng-class="{'ha-active': loginForm.loginIdentificator.identificatorType=='mobile'}">Mobile</span>
+					    <img src="img/loading.gif" style="width:18px;margin-left:10px;" class="ha-checking" ng-show="loginForm.loginIdentificator.$pending.identificator" />
+					</label> 
+					<input type="text" name="loginIdentificator" ng-model="identificator" ng-model-options="{debounce:500}" class="form-control" placeholder="Username/EMail/Mobile" required identificator>
+
+					<span class="ha-error" ng-show="loginForm.loginIdentificator.$error.required && loginForm.loginIdentificator.$touched">In order to sign-in or create your account you must enter a valid username or email or mobile</span>
+                    <span class="ha-error" ng-show="loginForm.loginIdentificator.identificatorType=='unmatched'">Invalid identificator: you must enter a valid username or email or mobile</span>
+
+				</div>
+
+				<div class="form-group">
+					<label>Password</label> 
+					<input type="password" ng-model="password" class="form-control" placeholder="Password">
+				</div>
+				
+				<div id="retype-password" class="form-group">
+					<label>Re-type password</label> 
+					<input type="password" name="rePassword" ng-model="rePassword" class="form-control" ng-class="{'ha-mismatched': password!=rePassword}" placeholder="Re-type password" re-password>
+				
+				    <span class="ha-error" ng-show="rePassword!='' && password!=rePassword">Password and rePassword don't match!</span>
+				</div>
+				
+				<button id="login" class="btn btn-primary btn-block ha-submit">Sign in</button>
+				<button id="create" class="btn btn-primary btn-block ha-submit">Create an account</button>
+
+				<div class="form-group">
+					<label>Authenticate with:</label> 
+					<div>
+						<button class="btn btn-primary ha-authenticator" data-authenticator="google"><i class="fa fa-google ha-button-symbol ha-button-symbol-circle"></i>Google</button>
+						<button class="btn btn-primary ha-authenticator" data-authenticator="facebook"><i class="fa fa-facebook ha-button-symbol ha-button-symbol-circle"></i>Facebook</button>
+						<button class="btn btn-primary ha-authenticator" data-authenticator="linkedin"><i class="fa fa-linkedin ha-button-symbol ha-button-symbol-circle"></i>LinkedIn</button>
+					</div>
+				</div>
+				
+				<button id="forgotten" class="btn btn-primary btn-block ha-submit">Forgotten password</button>
+
+			</fieldset>
+		</form>
+		
+		<!--  PROFILE  -->
+		
+		<form id="profile-form">
+			<fieldset>
+				<div class="form-group">
+					<label>Name</label> 
+					<input type="text" ng-model="haUser.firstName" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Surname</label> 
+					<input type="text" ng-model="haUser.lastName" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Username</label> 
+					<input type="text" ng-model="haUser.username" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>E-mail</label> 
+					<input type="text" ng-model="haUser.email" class="form-control">
+				</div>
+				<div class="form-group">
+					<label>Mobile</label> 
+					<input type="text" ng-model="haUser.mobile" class="form-control">
+				</div>
+				
+				<button id="update" class="btn btn-primary btn-block ha-submit">Update profile</button>
+			</fieldset>
+
+			<button id="logout" class="btn btn-primary btn-block">Log-out</button>
+		</form>
+	
+	</div>
+</div>

@@ -1,0 +1,269 @@
+#lightbulb {
+  font-size: 100px;
+  display: block;
+  text-align: center;
+}
+
+.ha-success {
+}
+.ha-warning {
+}
+.ha-error {
+	color: #AA0000;
+}
+.ha-checking {
+}
+.ha-mismatched {
+	color: #AA0000;
+	background-color:#FFFFAA;
+}
+.ha-active {
+	color: #007aff;;
+}
+.ha-debug-view {
+    background-color: rgba(255, 255, 0, 0.5);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.ha-authenticator {
+	min-width: 120px;
+}
+
+.ha-button-symbol {
+    margin-right: 5px;
+    font-size: 25px;
+    vertical-align: sub;
+}
+
+.ha-button-symbol-circle {
+    background-color: rgba(0,0,0,0.25);
+    padding: 5px;
+    border-radius: 18px;
+    width: 35px;
+}
+
+ha-red {color:#FF0000;}
+ha-yellow {color:#e6b800;}
+ha-gray {color:#888888;}
+
+
+.w30 {
+  width: 30px;
+  text-align: center;
+  color: #007aff;
+}
+
+a.active .w30 {
+    color: #ffffff;
+}
+
+
+
+.navbar-app {
+    min-height: 70px;
+}
+.navbar-app .btn-navbar, .navbar-app .btn {
+    line-height: 67px;
+}
+.navbar-brand {
+    font-size: 27px;
+    height: 69px;
+    line-height: 40px;
+    padding: 15px;
+}
+.has-navbar-top .app-body {
+    padding-top: 68px;
+}	
+
+h1 {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.chat-user-avatar {
+  font-size: 40px;
+  background: #ccc;
+  padding: 5px 10px;
+}
+
+.feature-icon {
+  font-size: 44px;
+  padding: 0;
+  line-height: 68px;
+  width: 72px;
+  text-align: center;
+  opacity: .8;
+  border: 3px solid;
+  border-radius: 200px;
+  height: 72px;
+  margin-bottom: 20px;
+}
+
+.feature-icon.fa-gamepad {
+  line-height: 60px;
+}
+
+.feature-icon.fa-tachometer {
+  line-height: 60px;
+}
+
+.app-content-loading {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: relative;
+}
+
+.loading-spinner {
+  position: absolute;
+  font-size: 50px;
+  left: 50%;
+  top: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+}
+
+.carousel-example-content {
+  position: absolute;
+  font-size: 50px;
+  line-height: 50px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  margin-top: -50px;
+}
+
+
+.carousel-item {
+  display: block;
+  color: #444;
+  background: #f4f4f4;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  opacity: 1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.carousel {
+  padding: 20px;
+  overflow: visible;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: visible;
+}
+
+.carousel>.item, .carousel-item {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.carousel-item {
+  -webkit-transition: -webkit-transform 500ms;
+  -moz-transition: -moz-transform 500ms;
+  transition: transform 500ms;
+}
+
+[drag-to-dismiss]{
+  transform: translate(0,0); /* NOTE: this is required to prevent mobile webkit issues */ 
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+}
+
+.notices-container {
+  overflow-x: hidden;
+}
+
+.dismiss {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0.5;
+}
+
+.dismitted {
+  -webkit-transition: opacity 300ms, -webkit-transform 300ms;
+  -moz-transition: opacity 300ms, -moz-transform 300ms;
+  transition: opacity 300ms, transform 300ms;
+  opacity: 0;
+}
+
+.list-group-item-home {
+  padding: 20px; 
+}
+
+pre {
+  text-align: left !important;
+}
+
+input.scrollable-header {
+  border-bottom: 3px solid #ccc;
+}
+
+.toucharea {width: 100%; height: 100%;}
+
+div.bt-smartbutton.status1 {
+	background-color: #007aff;
+}
+
+div.bt-smartbutton.status2 {
+	background-color: 333333;
+}
+
+div.bt-smartbutton.status3 {
+	background-color: #CCCCCC;
+}
+
+div.bt-smartbutton.status4 {
+	background-color: #00AA00;
+}
+
+div.bt-smartbutton.status5 {
+	background-color: #00AAAA;
+}
+
+div.bt-smartbutton.status6 {
+	background-color: #AA00AA;
+}
+
+div.bt-smartbutton.status7 {
+	background-color: #0000AA;
+}
+
+div.bt-smartbutton.status8 {
+	background-color: #AAA000;
+}
+
+div.bt-smartbutton.status9 {
+	background-color: #000AAA;
+}
+
+div.bt-smartbutton.status10 {
+	background-color: #550000;
+}

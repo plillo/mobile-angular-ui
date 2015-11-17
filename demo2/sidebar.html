@@ -1,0 +1,11 @@
+<div class="scrollable">
+  <h1 class="scrollable-header app-name">Retail<ha-yellow>Profiler</ha-yellow>&nbsp;<ha-gray>1.0</ha-gray></h1>  
+  <div class="scrollable-content">
+    <div class="list-group" ui-turn-off='uiSidebarLeft'>
+      <a class="list-group-item" ui-sref="home"><i class="fa fa-home w30"></i> Home <i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ui-sref="login"><i ng-if="!haLoggedUser" class="fa fa-lock w30"></i><i ng-if="haLoggedUser" class="fa fa-unlock w30"></i> <span ng-if="!haLoggedUser">Sign-in</span><span ng-if="haLoggedUser">Profile</span> <i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ui-sref="scroll"><i class="fa fa-male w30"></i> Profilo <i class="fa fa-chevron-right pull-right"></i></a>
+      <a class="list-group-item" ui-sref="coupon"><i class="fa fa-euro w30"></i> Coupon <i class="fa fa-chevron-right pull-right"></i></a>
+    </div>
+  </div>
+</div>

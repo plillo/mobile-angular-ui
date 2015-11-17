@@ -1,0 +1,18 @@
+div.bt-smartbutton {
+	display: inline-block;
+	vertical-align: top;
+	background-color: #AAAAAA;
+	color: #FFFFFF;
+	cursor: pointer;
+	position: relative;
+}
+
+div.bt-smartbutton div.bt-label {
+    text-align: center;
+    vertical-align: middle;
+}
+div.bt-smartbutton *.bt-loading {}
+div.bt-smartbutton *.bt-input {}
+
+div.bt-smartbutton.bt-mouseover {background-color: #999999;}
+div.bt-smartbutton.bt-mousedown {background-color: #AA6666;}

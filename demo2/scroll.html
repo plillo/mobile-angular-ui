@@ -1,0 +1,36 @@
+<div ui-content-for="title">
+  <span>Scroll</span>
+</div>
+
+<div class="scrollable" ui-state="searchBar">
+
+  <div style="font-size:0;">
+  <bt-smartbutton title="io sono un pulsante" label="one" width="100" height="100" status="1" statesnumber="3" srefs="home,coupon,docs" ></bt-smartbutton>
+  <bt-smartbutton title="io sono un pulsante" label="two" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb12"></bt-smartbutton>
+  <bt-smartbutton title="io sono un pulsante" label="three" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb13"></bt-smartbutton>
+  <bt-smartbutton title="io sono un pulsante" label="four" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb14"></bt-smartbutton>
+  <bt-smartbutton title="io sono un pulsante" label="five" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb15"></bt-smartbutton>
+  <bt-smartbutton title="io sono un pulsante" label="six" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb16"></bt-smartbutton>
+  </div>
+
+  <input
+    ng-if="Ui.active('searchBar')"
+    type="search"
+    class="form-control scrollable-header"
+    placeholder="Search.." />
+
+  <div class="scrollable-content" ui-scroll-bottom='bottomReached()'>
+    <div class="list-group">
+      <a ng-repeat="item in scrollItems" href="#" class="list-group-item">
+        {{ item }} <i class="fa fa-chevron-right pull-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <a class="btn btn-block btn-lg btn-primary scrollable-footer" ui-toggle='searchBar'>
+    <i class="fa fa-search"></i> 
+    <span ui-hide="searchBar">Show</span>
+    <span ui-show="searchBar">Hide</span>
+    Search Bar
+  </a>
+</div>
