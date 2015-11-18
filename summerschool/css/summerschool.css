@@ -1,0 +1,126 @@
+body {
+	background-color: #EEEEEE;
+	background-image:url('../images/background.jpg');
+}
+
+div.Floating {
+    display: table;
+    margin: 0 auto;
+    width: 590px;
+}
+div.Floating div.Vertical {
+    float: left;
+}
+
+div.Slogan {
+    display: table;
+    margin: 6px auto;
+}
+
+div.Header {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    font-size: 0;
+    margin: 3px auto;
+    padding: 12px;
+    width: 500px;
+}
+
+div.Footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: table;
+    margin: 3px auto;
+    padding: 5px;
+    text-align: right;
+    width: 514px;
+}
+
+div.MainDiv {
+	margin: 0 auto;
+	display: table;
+	font-size: 0;
+}
+
+div.bt-smartbutton {
+	position: relative;
+	margin: 3px;
+}
+
+div.bt-smartbutton div.bt-icon {
+}
+
+div.bt-smartbutton div.bt-label {
+    position: relative;
+    text-align: center;
+}
+
+div.bt-smartbutton.myButton {
+	border-radius: 6px;
+}
+
+div.bt-smartbutton div.bt-label>span {
+    font-size: 28px !important;
+    margin: -48px 0 0 7px !important;
+}
+
+div.bt-smartbutton.bt-mouseover {
+	background: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+	/* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+	/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+	/* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+	/* Standard syntax */
+}
+
+div.bt-smartbutton.bt-mousedown {
+	background: -webkit-linear-gradient(rgba(255, 255, 255, 0.5),
+		transparent); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgba(255, 255, 255, 0.5), transparent);
+	/* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgba(255, 255, 255, 0.5), transparent);
+	/* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgba(255, 255, 255, 0.5), transparent);
+	/* Standard syntax */
+}
+
+div.bt-smartbutton.status1 {
+	background-color: #0000AA;
+}
+
+div.bt-smartbutton.status2 {
+	background-color: #AAAA00;
+}
+
+div.bt-smartbutton.status3 {
+	background-color: #AA0000;
+}
+
+div.bt-smartbutton.status4 {
+	background-color: #888888;
+}
+
+div.bt-smartbutton.status5 {
+	background-color: #888888;
+}
+
+div.bt-smartbutton.status6 {
+	background-color: #AA00AA;
+}
+
+div.bt-smartbutton.status7 {
+	background-color: #0000AA;
+}
+
+div.bt-smartbutton.status8 {
+	background-color: #AAA000;
+}
+
+div.bt-smartbutton.status9 {
+	background-color: #000AAA;
+}
+
+div.bt-smartbutton.status10 {
+	background-color: #550000;
+}

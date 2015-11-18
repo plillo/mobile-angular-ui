@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<title>AngularJS Routing</title>
+<link rel="stylesheet" href="css/app.css" />
+
+<!-- template in-line -->
+<script type="text/ng-template" id="/view4.tpl">
+<p>{{message}}</p>
+</script>
+
+</head>
+<body>
+    <hello-world></hello-world>
+    
+    <div ng-controller="TemplateController">
+    	<bt-smartbutton></bt-smartbutton>
+    </div>
+
+	<ul class="menu">
+		<li><a ui-sref="view1">view1</a></li>
+		<li><a ui-sref="view2">view2</a></li>
+		<li><a ui-sref="view3({parameter:1})">view3 con parametro '1'</a></li>
+		<li><a ui-sref="view3({parameter:2})">view3 con parametro '2'</a></li>
+		<li><a ui-sref="view4">view4: template in-line</a></li>
+	</ul>
+	<ui-view></ui-view>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-ui-router.min.js"></script>
+	<script src="js/directives.js"></script>
+	<script src="js/app2.js"></script>
+	<script src="js/controllers2.js"></script>
+</body>
+</html> 

@@ -1,0 +1,8 @@
+div.bt-button {
+	display: inline-block;
+    border: 1px solid #aaaaaa;
+    height: 20px;
+    margin: 1px 1px 0 0;
+    text-align: center;
+    width: 20px;
+}

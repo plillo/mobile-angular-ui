@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link href="css/bt-smartbutton.css" rel="stylesheet" />
+    <link href="css/summerschool.css" rel="stylesheet" />
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <div class="Floating">
+        <div class="Vertical"><img src="images/sensors.png" /></div>
+	    <div class="Slogan">
+	    	<img src="images/waiting.png" />
+	    </div>
+	    <div class="Header">
+	    	<img src="images/iot360.png" />
+	    </div>
+	  	<div class="MainDiv">
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="5" topic="app001/button/msb11"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="5" topic="app001/button/msb12"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="5" topic="app001/button/msb13"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="5" topic="app001/button/msb14"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="5" topic="app001/button/msb15"></bt-smartbutton>
+		    <br />
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb21"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb22"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb23"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb24"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb25"></bt-smartbutton>
+		    <br />
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb31"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb32"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb33"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb34"></bt-smartbutton>
+		    <bt-smartbutton title="io sono un pulsante" label="" width="100" height="100" status="1" statesnumber="3" topic="app001/button/msb35"></bt-smartbutton>
+		</div>
+		<div class="Footer">
+	    	<img src="images/summerschool2015.png" />
+	    </div>
+    
+    </div>
+  
+  
+  
+
+
+<!-- SCRIPTS -->
+    <script src="js/lib/jquery-1.9.1.min.js"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/mqttws31.js"></script>
+    <script src="js/app6.js"></script>
+    <script src="js/services6.js"></script>
+    <script src="js/directives6.js"></script>
+
+  </body>
+
+</html>

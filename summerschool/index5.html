@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<audio id="audio" src="sounds/doorbell.wav" autostart="false" ></audio>
+<meta content="width=device-width" name="viewport">
+<meta charset="utf-8">
+<title>Locations - STOMP Example</title>
+<style>
+#connect_form {background-color:#EEEEEE;padding: 20px;}
+#connect_form fieldset {
+	border: 0 none;
+    line-height: 35px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+</style>
+</head>
+<body>
+	<h1>Locations - STOMP Example</h1>
+	<p>
+	<strong>Avviare il server HTTP con:</strong>
+	<br />D:\_hash\git\it.hash.osgi.angular\it.hash.osgi.angular.test.application\static\angularJSTest><strong style="color:#AA0000;">http-server</strong>
+	</p>
+	
+	<p>
+	<strong>Avviare il broker con:</strong>
+	<br />D:\_hash\ActiveMQ\apache-activemq-5.12.0\mobilewebmsg\mybroker><strong style="color:#AA0000;">.\bin\mybroker start</strong>
+	</p>
+	
+	<p>
+	<strong>Amministrare il broker all'indirizzo:</strong>
+	<strong style="color:#AA0000;">http://localhost:8161/admin</strong>
+	(credenziali: admin / admin)
+	</p>
+	<form id='connect_form'>
+		<fieldset>
+			<label>WebSocket URL</label> <input name=url id='connect_url' value='ws://calimero:61614' type="text">
+			<button id='connect_button' type="submit">Connect</button>
+			<button type="button" id='disconnect_button' disabled>Disconnect</button>
+		</fieldset>
+	</form>
+	
+	<form id="text_form_0" style="display: block;">
+		<fieldset>
+			<legend>Send button status</legend>
+			Status: <input id='status' size=5 placeholder="type the status of button" type="text" value="0"><br>
+			<button id='text_submit_0' type="submit">Send</button>
+		</fieldset>
+	</form>
+	
+	<form id="text_form" style="display: none;">
+		<fieldset>
+			<legend>Send Text</legend>
+			Device: <select id="deviceID"></select> <br> 
+			Text: <input id='text' size=64 placeholder="type the text to sent to the device" type="text"><br>
+			LAT: <input id='lat' size=64 placeholder="type the LAT to sent to the device" type="text" value="43.188626"><br>
+			LNG: <input id='lng' size=64 placeholder="type the LAT to sent to the device" type="text" value="-104.765625"><br>
+			<button id='text_submit' type="submit">Send</button>
+		</fieldset>
+	</form>
+	<hr>
+	<div id="map-canvas" style="height: 512px; width: 100%; padding: 0; margin: 0"></div>
+	<footer>
+		&copy; 2014 <a href="http://mobile-web-messaging.net">Mobile &amp;Web Messaging</a>
+	</footer>
+	<!-- Scripts placed at the end of the document so the pages load faster -->
+<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.1/stomp.js"></script>
+
+<script>
+$(document).ready(function() {
+    // handles the connect_form
+	$('#connect_form').submit(function() {
+		var url = $("#connect_url").val();
+		connect(url);
+		return false;
+	});
+
+    function PlaySound() {
+		var sound = document.getElementById("audio");
+		sound.play()
+    }
+
+	// connection to the STOMP broker
+	// and subscription to the device's position destinations
+	//
+	// the url paramater is the Web Socket URL of the STOMP broker
+	function connect(url) {
+		// callback if successfully connected to the STOMP broker
+		var connectedCallback = function(frame) {
+			client.debug("connected to Stomp");
+			$("#connect_button").prop("disabled",true);
+			$("#disconnect_button").prop("disabled",false);
+			$("#text_form").show();
+			
+			// we use a wildcard destination to register to any
+			// destination that matches this pattern
+			var destination = "/topic/device.*.location";
+			// subscribe and callback
+			client.subscribe(destination, function(message) {
+				var payload = JSON.parse(message.body);
+				var deviceID = payload.deviceID;
+				if (!$("#deviceID option[value='" + deviceID + "']").length) {
+					$('#deviceID').append($('<option>', {value:deviceID}).text(deviceID));
+				}
+				// show the device location on the map
+				show(deviceID, payload.lat, payload.lng);
+				
+				PlaySound();
+			});
+		};
+
+		// create the STOMP client - GLOBALE
+		client = Stomp.client(url);
+
+		// and connect to the STOMP broker
+		client.connect({}, connectedCallback);
+	};
+	
+	// Google map and the trackers to follow the trucks
+	var map, trackers = {};
+	function initialize() {
+		var mapOptions = {
+			zoom: 2,
+			center: new google.maps.LatLng(30,0),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map($("#map-canvas").get(0), mapOptions);
+	}; // end initialize
+	
+	// initialize the Google map
+	google.maps.event.addDomListener(window, 'load', initialize);
+	
+
+	// show the device at the given latitude and longitude
+	function show(deviceID, lat, lng) {
+		var position = new google.maps.LatLng(lat, lng);
+		// lazy instantiation of the map
+		if (!map) {
+			create_map(position);
+		}
+		if (trackers[deviceID]) {
+			// the tracker is known; we just need to update its position
+			trackers[deviceID].marker.setPosition(position);
+		} else {
+			// there is no tracker for this device yet; let's create it
+			var marker = new google.maps.Marker(
+				{
+					position: position,
+					map: map,
+					title: deviceID + " is here"
+				});
+			var infowindow = new google.maps.InfoWindow({content: "Device " + deviceID});
+			var tracker = {
+				marker: marker
+			};
+			// add it to the trackers
+			trackers[deviceID] = tracker;
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+			});
+		}
+	}; // end show
+	
+
+	// send a text to a device
+	$('#text_form').submit(function() {
+		var deviceID = $("#deviceID").val();
+		var lat = parseFloat($("#lat").val());
+		var lng = parseFloat($("#lng").val());
+		
+		// use the device's queue orders as the destination
+		//var destination = "/queue/device." + deviceID + ".text";
+		var destination = "/topic/device.xyz.location";
+		// text is sent as a plain-text string
+		//client.send(destination, {}, {deviceID:'xyz', lat:43.188626, lng:-104.765625, ts:1444997672});
+		client.send(destination, {}, JSON.stringify({deviceID:'xyz', lat:lat, lng:lng, ts:1444997672}));
+		// reset the text input field
+		//$("#text").val("");
+		return false;
+	});
+	
+	// send status to button
+	$('#text_form_0').submit(function() {
+		var status = parseInt($("#status").val());
+		var destination = "/topic/app001.button.msb1";
+		client.send(destination, {}, JSON.stringify({status:status}));
+
+		return false;
+	});
+		
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+body {background-color: #EEEEEE;}
+div.bt-smartbutton.myButton{border-radius: 6px;}
+
+
+div.bt-smartbutton.bt-mouseover {
+  background: -webkit-linear-gradient(rgba(0,0,0,0.5), transparent); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(0,0,0,0.5), transparent); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(0,0,0,0.5), transparent); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(0,0,0,0.5), transparent); /* Standard syntax */
+}
+div.bt-smartbutton.bt-mousedown {
+  background: -webkit-linear-gradient(rgba(255,255,255,0.5), transparent); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(255,255,255,0.5), transparent); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(255,255,255,0.5), transparent); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(255,255,255,0.5), transparent); /* Standard syntax */
+}
+div.bt-smartbutton.status1 {background-color: #AA0000;}
+div.bt-smartbutton.status2 {background-color: #AAAA00;}
+div.bt-smartbutton.status3 {background-color: #AAAAAA;}
+div.bt-smartbutton.status4 {background-color: #00AA00;}
+div.bt-smartbutton.status5 {background-color: #00AAAA;}
+div.bt-smartbutton.status6 {background-color: #AA00AA;}
+div.bt-smartbutton.status7 {background-color: #0000AA;}
+div.bt-smartbutton.status8 {background-color: #AAA000;}
+div.bt-smartbutton.status9 {background-color: #000AAA;}
+div.bt-smartbutton.status10 {background-color: #550000;}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Plunker</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link href="css/bt-smartbutton.css" rel="stylesheet" />
+    <link href="css/app4.css" rel="stylesheet" />
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <p>Hello {{name}}!</p>
+    <bt-smartbutton title="io sono un pulsante" label="" width="85" height="30" status="1" statesnumber="1" background="images/button-states.png" class="myButton"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="pulsante B" width="300" height="50" status="1" statesnumber="5"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="pulsante topic C" width="300" height="50" status="1" statesnumber="10"></bt-smartbutton>
+    <hr/>
+    <my-tag status="5"></my-tag>
+    <hr/>
+    <my-tag status="0"></my-tag>
+
+
+    <hr />
+    <bt-smartbutton title="io sono un pulsante" label="1" width="50" height="50" status="1" statesnumber="9" topic="/topic/app001.button.msb1"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="2" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="3" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <br />
+    <bt-smartbutton title="io sono un pulsante" label="4" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="5" width="50" height="50" status="1" statesnumber="9" topic="/topic/app001.button.msb2"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="6" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <br />
+    <bt-smartbutton title="io sono un pulsante" label="7" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="8" width="50" height="50" status="1" statesnumber="9"></bt-smartbutton>
+    <bt-smartbutton title="io sono un pulsante" label="9" width="50" height="50" status="1" statesnumber="9" topic="/topic/app001.button.msb3"></bt-smartbutton>
+
+<!-- SCRIPTS -->
+    <script src="js/lib/jquery-1.9.1.min.js"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/lib/stomp.js"></script>
+    <!-- script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.1/stomp.js"></script-->
+    <script src="js/app4.js"></script>
+    <script src="js/services4.js"></script>
+    <script src="js/directives4.js"></script>
+
+  </body>
+
+</html>
