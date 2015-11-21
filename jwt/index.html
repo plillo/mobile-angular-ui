@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Simple Angular Auth</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+<script src="js/jwt.js"></script>
+<script src="js/ngStorage.min.js"></script>
+<script src="app.js"></script>
+<style>
+textarea.form-control.text {
+    height: 140px;
+    width: 100%;
+}
+</style>
+</head>
+<body>
+	<div ng-app="sample" ng-controller="MainCtrl">
+		<div>
+			<form>
+				<div class="form-group">
+					<label>JWT to decode:</label>
+					<textarea class="form-control text" placeholder="Enter a JWT"
+						ng-model="storage.id_token"></textarea>
+				</div>
+			</form>
+			<hr>
+			<h1>Decoded Token</h1>
+			<p>{{decodedToken | json}}</p>
+		</div>
+	</div>
+
+</body>
+</html>
